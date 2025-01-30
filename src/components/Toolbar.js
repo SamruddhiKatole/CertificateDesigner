@@ -77,6 +77,8 @@ function Toolbar({ onPageSizeChange, onAddText, onBackgroundColorChange }) {
           <MenuItem value="Courier New">Courier New</MenuItem>
           <MenuItem value="Georgia">Georgia</MenuItem>
           <MenuItem value="Verdana">Verdana</MenuItem>
+          <MenuItem value="OdiaFont1">Odia Font 1</MenuItem>
+          <MenuItem value="OdiaFont2">Odia Font 2</MenuItem>
         </Select>
       </FormControl>
 

@@ -278,7 +278,7 @@ function CertificateDesigner() {
                 key={text.id}
                 text={text.text}
                 fontSize={text.fontSize}
-                fontFamily={text.fontFamily}
+                fontFamily={text.fontFamily || 'Arial'}
                 fill={text.color}
                 x={text.x}
                 y={text.y}

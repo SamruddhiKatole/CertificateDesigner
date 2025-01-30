@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'OdiaFont1';
+    src: url('../public/fonts/AKAAK-B.TTF') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'OdiaFont2';
+    src: url('../public/fonts/AKAAK-N.TTF') format('truetype');
+  }
+  
