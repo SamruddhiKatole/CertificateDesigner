@@ -103,6 +103,7 @@ function Toolbar({ onPageSizeChange, onAddText, onBackgroundColorChange }) {
         </Box>
       </Dialog>
 
+
       <Button
         variant="outlined"
         onClick={() => setBgColorPickerOpen(true)}
@@ -123,6 +124,7 @@ function Toolbar({ onPageSizeChange, onAddText, onBackgroundColorChange }) {
 }
 
 export default Toolbar;
+
 
 
 

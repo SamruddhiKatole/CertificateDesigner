@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { updateElement } from '../redux/actions';
-
 const LayerManager = () => {
   const dispatch = useDispatch();
 
@@ -23,6 +22,7 @@ const LayerManager = () => {
 };
 
 export default LayerManager;
+
 
 
 
