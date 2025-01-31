@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MenuItem, Select, FormControl, InputLabel, Stack, Button, Dialog, Box } from '@mui/material';
 import { SketchPicker } from 'react-color';
 function Toolbar({ onPageSizeChange, onAddText, onBackgroundColorChange }) {
@@ -8,7 +8,7 @@ function Toolbar({ onPageSizeChange, onAddText, onBackgroundColorChange }) {
   const [isTextColorPickerOpen, setTextColorPickerOpen] = useState(false);
   const [textColor, setTextColor] = useState('#000000');
   const [isBgColorPickerOpen, setBgColorPickerOpen] = useState(false);
-
+  const [fonts, setFonts] = useState([]); // Store fetched fonts
   const handlePageSizeChange = (event) => {
     const selectedSize = event.target.value;
     setPageSize(selectedSize);
@@ -41,6 +41,35 @@ function Toolbar({ onPageSizeChange, onAddText, onBackgroundColorChange }) {
   const handleBackgroundColorChange = (color) => {
     onBackgroundColorChange(color.hex);
   };
+
+  
+  // Fetch fonts from the Express API
+  useEffect(() => {
+    const fetchFonts = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/api/fonts'); // Fetch from API
+        const data = await response.json();
+        setFonts(data); // Store fonts
+      } catch (error) {
+        console.error('Error fetching fonts:', error);
+      }
+    };
+
+    fetchFonts();
+  }, []);
+
+  // Load the selected font dynamically
+  useEffect(() => {
+    if (fontFamily) {
+      const font = fonts.find(f => f.name === fontFamily);
+      if (font) {
+        const fontFace = new FontFace(font.name, `url(${font.url}) format('truetype')`);
+        fontFace.load().then((loadedFont) => {
+          document.fonts.add(loadedFont);
+        });
+      }
+    }
+  }, [fontFamily, fonts]);
 
   return (
     <Stack spacing={3}>
@@ -77,8 +106,9 @@ function Toolbar({ onPageSizeChange, onAddText, onBackgroundColorChange }) {
           <MenuItem value="Courier New">Courier New</MenuItem>
           <MenuItem value="Georgia">Georgia</MenuItem>
           <MenuItem value="Verdana">Verdana</MenuItem>
-          <MenuItem value="OdiaFont1">Odia Font 1</MenuItem>
-          <MenuItem value="OdiaFont2">Odia Font 2</MenuItem>
+          {fonts.map((font) => (
+            <MenuItem key={font.name} value={font.name}>{font.name}</MenuItem>
+          ))}
         </Select>
       </FormControl>
 
@@ -126,6 +156,15 @@ function Toolbar({ onPageSizeChange, onAddText, onBackgroundColorChange }) {
 }
 
 export default Toolbar;
+
+
+
+
+
+
+
+
+
 
 
 
