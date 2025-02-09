@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Menu, MenuItem, Typography } from '@mui/material';
 import { FontDownload } from '@mui/icons-material'; // For the font button icon
-
 const Sidebar = () => {
   const [anchorElSize, setAnchorElSize] = useState(null);
   const [anchorElFont, setAnchorElFont] = useState(null);
@@ -70,3 +69,8 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
+
+
+
+

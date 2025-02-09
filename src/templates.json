@@ -1,0 +1,984 @@
+[{
+    "_id": {
+      "$oid": "60794ba9db6915533eee9568"
+    },
+    "templateName": "Test",
+    "templateJson": {
+      "background": {
+        "orientation": {
+          "dimensions": {
+            "widthCm": 21,
+            "heightCm": 29.7
+          },
+          "displayScale": 0.7
+        },
+        "img": "https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/certificateeditor/background/a4portrait/bg1.png"
+      },
+      "rndElemSet": {
+        "697695354": {
+          "elementType": "IMAGE",
+          "elementId": 697695354,
+          "rndProps": {
+            "position": {
+              "x": 299,
+              "y": 82
+            },
+            "size": {
+              "width": 100,
+              "height": 100
+            }
+          },
+          "imgUrl": "https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/certificateeditor/images/badge1.png"
+        },
+        "2179258767": {
+          "elementType": "VARIABLE",
+          "elementId": 2179258767,
+          "rndProps": {
+            "size": {
+              "width": 150,
+              "height": 40
+            },
+            "position": {
+              "x": 100,
+              "y": 100
+            }
+          },
+          "id": "font-button-roboto",
+          "html": "{{TotalMarks}}",
+          "fontId": "roboto",
+          "textStyle": {
+            "fontWeight": 400,
+            "fontStyle": "normal",
+            "fontFamily": "Roboto",
+            "textDecoration": "none",
+            "color": "#000000",
+            "fontSize": 20
+          }
+        },
+        "3400483964": {
+          "elementType": "QRCODE",
+          "elementId": 3400483964,
+          "rndProps": {
+            "position": {
+              "x": 324,
+              "y": 390
+            },
+            "size": {
+              "width": 90,
+              "height": 90
+            }
+          },
+          "imgUrl": "https://miro.medium.com/max/1400/1*sHmqYIYMV_C3TUhucHrT4w.png"
+        },
+        "9540179518": {
+          "elementType": "TEXT",
+          "elementId": 9540179518,
+          "rndProps": {
+            "size": {
+              "width": 150,
+              "height": 40
+            },
+            "position": {
+              "x": 131,
+              "y": 323
+            }
+          },
+          "id": "font-button-roboto",
+          "html": "Testing",
+          "fontId": "roboto",
+          "textStyle": {
+            "fontWeight": 900,
+            "fontStyle": "italic",
+            "fontFamily": "Roboto",
+            "textDecoration": "underline",
+            "color": "#C30606",
+            "fontSize": 20
+          }
+        },
+        "6254074588": {
+          "elementType": "VARIABLE",
+          "elementId": 6254074588,
+          "rndProps": {
+            "size": {
+              "width": 150,
+              "height": 40
+            },
+            "position": {
+              "x": 85,
+              "y": 225
+            }
+          },
+          "id": "font-button-roboto",
+          "html": "{{OrgName}}",
+          "fontId": "roboto",
+          "textStyle": {
+            "fontWeight": 400,
+            "fontStyle": "normal",
+            "fontFamily": "Roboto",
+            "textDecoration": "none",
+            "color": "#000000",
+            "fontSize": 20
+          }
+        }
+      }
+    },
+    "imgUrl": "https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/email/orgData/common/1618561936.png",
+    "html": "<html><head></head><body><div id=\"certeditor-content\" style=\"position: relative; width: 14.7cm; height: 20.79cm; background-color: rgb(255, 255, 255); padding: 0px; margin: 0px; background-image: url(&quot;https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/certificateeditor/background/a4portrait/bg1.png&quot;); background-size: cover;\"><div class=\"certeditor-rnd-textelement react-draggable react-draggable-dragged\" style=\"position: absolute; user-select: auto; width: 150px; height: 40px; display: inline-block; top: 0px; left: 0px; cursor: move; text-align: center; transform: translate(131px, 323px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><link href=\"https://fonts.googleapis.com/css2?family=Roboto\" rel=\"stylesheet\"><div id=\"font-button-roboto\" class=\"font-button-roboto\" contenteditable=\"true\" style=\"font-weight: 900; font-style: italic; font-family: Roboto; text-decoration: underline; color: rgb(195, 6, 6); font-size: 20px;\">Testing</div><div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; left: -5px; cursor: col-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; right: -5px; cursor: col-resize;\"></div></div></div><div class=\"certeditor-rnd-varbelement react-draggable\" style=\"position: absolute; user-select: auto; width: 150px; height: 40px; display: inline-block; top: 0px; left: 0px; cursor: move; text-align: center; transform: translate(100px, 100px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><link href=\"https://fonts.googleapis.com/css2?family=Roboto\" rel=\"stylesheet\"><div id=\"font-button-roboto\" class=\"font-button-roboto\" disabled=\"\" contenteditable=\"false\" style=\"font-weight: 400; font-style: normal; font-family: Roboto; text-decoration: none; color: rgb(0, 0, 0); font-size: 20px;\">{{TotalMarks}}</div><div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; left: -5px; cursor: col-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; right: -5px; cursor: col-resize;\"></div></div></div><div class=\"certeditor-rnd-varbelement certeditor-rnd-selected react-draggable react-draggable-dragged\" style=\"position: absolute; user-select: auto; width: 150px; height: 40px; display: inline-block; top: 0px; left: 0px; cursor: move; text-align: center; transform: translate(85px, 225px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><link href=\"https://fonts.googleapis.com/css2?family=Roboto\" rel=\"stylesheet\"><div id=\"font-button-roboto\" class=\"font-button-roboto\" disabled=\"\" contenteditable=\"false\" style=\"font-weight: 400; font-style: normal; font-family: Roboto; text-decoration: none; color: rgb(0, 0, 0); font-size: 20px;\">{{OrgName}}</div><div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; left: -5px; cursor: col-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; right: -5px; cursor: col-resize;\"></div></div></div><div class=\"certeditor-rnd-imgelement react-draggable react-draggable-dragged\" style=\"position: absolute; user-select: auto; width: 100px; height: 100px; display: inline-block; top: 0px; left: 0px; cursor: move; text-align: center; transform: translate(299px, 82px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><img src=\"https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/certificateeditor/images/badge1.png\" draggable=\"false\" alt=\"certimageasset\" style=\"width: 100%;\"><div><div class=\"\" style=\"position: absolute; user-select: none; width: 20px; height: 20px; right: -10px; bottom: -10px; cursor: se-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 20px; height: 20px; left: -10px; bottom: -10px; cursor: sw-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 20px; height: 20px; right: -10px; top: -10px; cursor: ne-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 20px; height: 20px; left: -10px; top: -10px; cursor: nw-resize;\"></div></div></div><div class=\"certeditor-rnd-imgelement react-draggable react-draggable-dragged\" style=\"position: absolute; user-select: auto; width: 90px; height: 90px; display: inline-block; top: 0px; left: 0px; cursor: move; transform: translate(324px, 390px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><img id=\"certeditor-qrcode\" draggable=\"false\" src=\"{{QrCode}}\" width=\"100%\" height=\"100%\" alt=\"qr-code\"><div></div></div></div></body></html>",
+    "variant": "A4PORTRAIT",
+    "addedBy": {
+      "$oid": "5f80bdb43234820a45d9a406"
+    },
+    "created": 1618561962,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "607956728977d33bae70f016"
+    },
+    "templateName": "template 3",
+    "templateJson": {
+      "background": {
+        "orientation": {
+          "dimensions": {
+            "widthCm": 21,
+            "heightCm": 29.7
+          },
+          "displayScale": 0.7
+        },
+        "img": "https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/certificateeditor/background/a4portrait/bg2.png"
+      },
+      "rndElemSet": {
+        "9423031578": {
+          "elementType": "VARIABLE",
+          "elementId": 9423031578,
+          "rndProps": {
+            "size": {
+              "width": 150,
+              "height": 40
+            },
+            "position": {
+              "x": 92,
+              "y": 286
+            }
+          },
+          "id": "font-button-roboto",
+          "html": "{{StudentName}}",
+          "fontId": "roboto",
+          "textStyle": {
+            "fontWeight": 400,
+            "fontStyle": "normal",
+            "fontFamily": "Roboto",
+            "textDecoration": "none",
+            "color": "#000000",
+            "fontSize": 20
+          }
+        },
+        "5857512943": {
+          "elementType": "TEXT",
+          "elementId": 5857512943,
+          "rndProps": {
+            "size": {
+              "width": 150,
+              "height": 40
+            },
+            "position": {
+              "x": 266,
+              "y": 366
+            }
+          },
+          "id": "font-button-roboto",
+          "html": "Successfully",
+          "fontId": "roboto",
+          "textStyle": {
+            "fontWeight": 400,
+            "fontStyle": "normal",
+            "fontFamily": "Roboto",
+            "textDecoration": "none",
+            "color": "#000000",
+            "fontSize": 20
+          }
+        },
+        "8480387617": {
+          "elementType": "TEXT",
+          "elementId": 8480387617,
+          "rndProps": {
+            "size": {
+              "width": 150,
+              "height": 40
+            },
+            "position": {
+              "x": 258,
+              "y": 284
+            }
+          },
+          "id": "font-button-roboto",
+          "html": "has completed",
+          "fontId": "roboto",
+          "textStyle": {
+            "fontWeight": 400,
+            "fontStyle": "normal",
+            "fontFamily": "Roboto",
+            "textDecoration": "none",
+            "color": "#000000",
+            "fontSize": 20
+          }
+        },
+        "9466885024": {
+          "elementType": "VARIABLE",
+          "elementId": 9466885024,
+          "rndProps": {
+            "size": {
+              "width": 150,
+              "height": 40
+            },
+            "position": {
+              "x": 89,
+              "y": 365
+            }
+          },
+          "id": "font-button-roboto",
+          "html": "{{CourseName}}",
+          "fontId": "roboto",
+          "textStyle": {
+            "fontWeight": 400,
+            "fontStyle": "normal",
+            "fontFamily": "Roboto",
+            "textDecoration": "none",
+            "color": "#000000",
+            "fontSize": 20
+          }
+        }
+      }
+    },
+    "imgUrl": "https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/email/orgData/common/1618564719.png",
+    "html": "<html><head></head><body><div id=\"certeditor-content\" style=\"position: relative; width: 14.7cm; height: 20.79cm; background-color: rgb(255, 255, 255); padding: 0px; margin: 0px; background-image: url(&quot;https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/certificateeditor/background/a4portrait/bg2.png&quot;); background-size: cover;\"><div class=\"certeditor-rnd-textelement certeditor-rnd-selected react-draggable react-draggable-dragged\" style=\"position: absolute; user-select: auto; width: 150px; height: 40px; display: inline-block; top: 0px; left: 0px; cursor: move; text-align: center; transform: translate(266px, 366px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><link href=\"https://fonts.googleapis.com/css2?family=Roboto\" rel=\"stylesheet\"><div id=\"font-button-roboto\" class=\"font-button-roboto\" contenteditable=\"true\" style=\"font-weight: 400; font-style: normal; font-family: Roboto; text-decoration: none; color: rgb(0, 0, 0); font-size: 20px;\">Successfully</div><div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; left: -5px; cursor: col-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; right: -5px; cursor: col-resize;\"></div></div></div><div class=\"certeditor-rnd-textelement react-draggable react-draggable-dragged\" style=\"position: absolute; user-select: auto; width: 150px; height: 40px; display: inline-block; top: 0px; left: 0px; cursor: move; text-align: center; transform: translate(258px, 284px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><link href=\"https://fonts.googleapis.com/css2?family=Roboto\" rel=\"stylesheet\"><div id=\"font-button-roboto\" class=\"font-button-roboto\" contenteditable=\"true\" style=\"font-weight: 400; font-style: normal; font-family: Roboto; text-decoration: none; color: rgb(0, 0, 0); font-size: 20px;\">has completed</div><div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; left: -5px; cursor: col-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; right: -5px; cursor: col-resize;\"></div></div></div><div class=\"certeditor-rnd-varbelement react-draggable react-draggable-dragged\" style=\"position: absolute; user-select: auto; width: 150px; height: 40px; display: inline-block; top: 0px; left: 0px; cursor: move; text-align: center; transform: translate(92px, 286px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><link href=\"https://fonts.googleapis.com/css2?family=Roboto\" rel=\"stylesheet\"><div id=\"font-button-roboto\" class=\"font-button-roboto\" disabled=\"\" contenteditable=\"false\" style=\"font-weight: 400; font-style: normal; font-family: Roboto; text-decoration: none; color: rgb(0, 0, 0); font-size: 20px;\">{{StudentName}}</div><div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; left: -5px; cursor: col-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; right: -5px; cursor: col-resize;\"></div></div></div><div class=\"certeditor-rnd-varbelement react-draggable react-draggable-dragged\" style=\"position: absolute; user-select: auto; width: 150px; height: 40px; display: inline-block; top: 0px; left: 0px; cursor: move; text-align: center; transform: translate(89px, 365px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><link href=\"https://fonts.googleapis.com/css2?family=Roboto\" rel=\"stylesheet\"><div id=\"font-button-roboto\" class=\"font-button-roboto\" disabled=\"\" contenteditable=\"false\" style=\"font-weight: 400; font-style: normal; font-family: Roboto; text-decoration: none; color: rgb(0, 0, 0); font-size: 20px;\">{{CourseName}}</div><div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; left: -5px; cursor: col-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; right: -5px; cursor: col-resize;\"></div></div></div></div></body></html>",
+    "variant": "A4PORTRAIT",
+    "addedBy": {
+      "$oid": "5f80bdb43234820a45d9a406"
+    },
+    "created": 1618564722,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "607958d05cd0d84345c9bab2"
+    },
+    "templateName": "template 4",
+    "templateJson": {
+      "background": {
+        "orientation": {
+          "dimensions": {
+            "widthCm": 21,
+            "heightCm": 29.7
+          },
+          "displayScale": 0.7
+        },
+        "img": "https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/certificateeditor/background/a4portrait/bg3.png"
+      },
+      "rndElemSet": {
+        "44719880": {
+          "elementType": "VARIABLE",
+          "elementId": 44719880,
+          "rndProps": {
+            "size": {
+              "width": 150,
+              "height": 40
+            },
+            "position": {
+              "x": 179,
+              "y": 374
+            }
+          },
+          "id": "font-button-roboto",
+          "html": "{{CourseName}}",
+          "fontId": "roboto",
+          "textStyle": {
+            "fontWeight": 400,
+            "fontStyle": "normal",
+            "fontFamily": "Roboto",
+            "textDecoration": "none",
+            "color": "#000000",
+            "fontSize": 20
+          }
+        },
+        "440997112": {
+          "elementType": "IMAGE",
+          "elementId": 440997112,
+          "rndProps": {
+            "position": {
+              "x": 346,
+              "y": 88
+            },
+            "size": {
+              "width": 100,
+              "height": 100
+            }
+          },
+          "imgUrl": "https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/certificateeditor/images/badge3.png"
+        },
+        "2742113820": {
+          "elementType": "TEXT",
+          "elementId": 2742113820,
+          "rndProps": {
+            "size": {
+              "width": "180px",
+              "height": "40px"
+            },
+            "position": {
+              "x": 275,
+              "y": 317
+            }
+          },
+          "id": "font-button-roboto",
+          "html": "Has Completed",
+          "fontId": "roboto",
+          "textStyle": {
+            "fontWeight": 400,
+            "fontStyle": "normal",
+            "fontFamily": "Roboto",
+            "textDecoration": "none",
+            "color": "#000000",
+            "fontSize": 20
+          }
+        },
+        "5247809232": {
+          "elementType": "VARIABLE",
+          "elementId": 5247809232,
+          "rndProps": {
+            "size": {
+              "width": 150,
+              "height": 40
+            },
+            "position": {
+              "x": 113,
+              "y": 321
+            }
+          },
+          "id": "font-button-roboto",
+          "html": "{{StudentName}}",
+          "fontId": "roboto",
+          "textStyle": {
+            "fontWeight": 400,
+            "fontStyle": "normal",
+            "fontFamily": "Roboto",
+            "textDecoration": "none",
+            "color": "#000000",
+            "fontSize": 20
+          }
+        }
+      }
+    },
+    "imgUrl": "https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/email/orgData/common/1618565326.png",
+    "html": "<html><head></head><body><div id=\"certeditor-content\" style=\"position: relative; width: 14.7cm; height: 20.79cm; background-color: rgb(255, 255, 255); padding: 0px; margin: 0px; background-image: url(&quot;https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/certificateeditor/background/a4portrait/bg3.png&quot;); background-size: cover;\"><div class=\"certeditor-rnd-textelement react-draggable react-draggable-dragged\" style=\"position: absolute; user-select: auto; width: 180px; height: 40px; display: inline-block; top: 0px; left: 0px; cursor: move; text-align: center; transform: translate(275px, 317px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><link href=\"https://fonts.googleapis.com/css2?family=Roboto\" rel=\"stylesheet\"><div id=\"font-button-roboto\" class=\"font-button-roboto\" contenteditable=\"true\" style=\"font-weight: 400; font-style: normal; font-family: Roboto; text-decoration: none; color: rgb(0, 0, 0); font-size: 20px;\">Has Completed</div><div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; left: -5px; cursor: col-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; right: -5px; cursor: col-resize;\"></div></div></div><div class=\"certeditor-rnd-varbelement react-draggable react-draggable-dragged\" style=\"position: absolute; user-select: auto; width: 150px; height: 40px; display: inline-block; top: 0px; left: 0px; cursor: move; text-align: center; transform: translate(179px, 374px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><link href=\"https://fonts.googleapis.com/css2?family=Roboto\" rel=\"stylesheet\"><div id=\"font-button-roboto\" class=\"font-button-roboto\" disabled=\"\" contenteditable=\"false\" style=\"font-weight: 400; font-style: normal; font-family: Roboto; text-decoration: none; color: rgb(0, 0, 0); font-size: 20px;\">{{CourseName}}</div><div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; left: -5px; cursor: col-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; right: -5px; cursor: col-resize;\"></div></div></div><div class=\"certeditor-rnd-varbelement certeditor-rnd-selected react-draggable react-draggable-dragged\" style=\"position: absolute; user-select: auto; width: 150px; height: 40px; display: inline-block; top: 0px; left: 0px; cursor: move; text-align: center; transform: translate(113px, 321px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><link href=\"https://fonts.googleapis.com/css2?family=Roboto\" rel=\"stylesheet\"><div id=\"font-button-roboto\" class=\"font-button-roboto\" disabled=\"\" contenteditable=\"false\" style=\"font-weight: 400; font-style: normal; font-family: Roboto; text-decoration: none; color: rgb(0, 0, 0); font-size: 20px;\">{{StudentName}}</div><div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; left: -5px; cursor: col-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; right: -5px; cursor: col-resize;\"></div></div></div><div class=\"certeditor-rnd-imgelement react-draggable react-draggable-dragged\" style=\"position: absolute; user-select: auto; width: 100px; height: 100px; display: inline-block; top: 0px; left: 0px; cursor: move; text-align: center; transform: translate(346px, 88px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><img src=\"https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/certificateeditor/images/badge3.png\" draggable=\"false\" alt=\"certimageasset\" style=\"width: 100%;\"><div><div class=\"\" style=\"position: absolute; user-select: none; width: 20px; height: 20px; right: -10px; bottom: -10px; cursor: se-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 20px; height: 20px; left: -10px; bottom: -10px; cursor: sw-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 20px; height: 20px; right: -10px; top: -10px; cursor: ne-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 20px; height: 20px; left: -10px; top: -10px; cursor: nw-resize;\"></div></div></div></div></body></html>",
+    "variant": "A4PORTRAIT",
+    "addedBy": {
+      "$oid": "5f80bdb43234820a45d9a406"
+    },
+    "created": 1618565328,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60795c5b5cd0d84345c9bab3"
+    },
+    "templateName": "template 5",
+    "templateJson": {
+      "background": {
+        "orientation": {
+          "dimensions": {
+            "widthCm": 21,
+            "heightCm": 29.7
+          },
+          "displayScale": 0.7
+        },
+        "img": "https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/certificateeditor/background/a4portrait/bg2.png"
+      },
+      "rndElemSet": {
+        "9423031578": {
+          "elementType": "VARIABLE",
+          "elementId": 9423031578,
+          "rndProps": {
+            "size": {
+              "width": 150,
+              "height": 40
+            },
+            "position": {
+              "x": 92,
+              "y": 286
+            }
+          },
+          "id": "font-button-roboto",
+          "html": "{{StudentName}}",
+          "fontId": "roboto",
+          "textStyle": {
+            "fontWeight": 400,
+            "fontStyle": "normal",
+            "fontFamily": "Roboto",
+            "textDecoration": "none",
+            "color": "#000000",
+            "fontSize": 20
+          }
+        },
+        "5857512943": {
+          "elementType": "TEXT",
+          "elementId": 5857512943,
+          "rndProps": {
+            "size": {
+              "width": 150,
+              "height": 40
+            },
+            "position": {
+              "x": 266,
+              "y": 366
+            }
+          },
+          "id": "font-button-roboto",
+          "html": "Successfully",
+          "fontId": "roboto",
+          "textStyle": {
+            "fontWeight": 400,
+            "fontStyle": "normal",
+            "fontFamily": "Roboto",
+            "textDecoration": "none",
+            "color": "#000000",
+            "fontSize": 20
+          }
+        },
+        "8480387617": {
+          "elementType": "TEXT",
+          "elementId": 8480387617,
+          "rndProps": {
+            "size": {
+              "width": 150,
+              "height": 40
+            },
+            "position": {
+              "x": 258,
+              "y": 284
+            }
+          },
+          "id": "font-button-roboto",
+          "html": "has completed",
+          "fontId": "roboto",
+          "textStyle": {
+            "fontWeight": 400,
+            "fontStyle": "normal",
+            "fontFamily": "Roboto",
+            "textDecoration": "none",
+            "color": "#000000",
+            "fontSize": 20
+          }
+        },
+        "9466885024": {
+          "elementType": "VARIABLE",
+          "elementId": 9466885024,
+          "rndProps": {
+            "size": {
+              "width": 150,
+              "height": 40
+            },
+            "position": {
+              "x": 89,
+              "y": 365
+            }
+          },
+          "id": "font-button-roboto",
+          "html": "{{CourseName}}",
+          "fontId": "roboto",
+          "textStyle": {
+            "fontWeight": 400,
+            "fontStyle": "normal",
+            "fontFamily": "Roboto",
+            "textDecoration": "none",
+            "color": "#000000",
+            "fontSize": 20
+          }
+        },
+        "7180843371": {
+          "elementType": "IMAGE",
+          "elementId": 7180843371,
+          "rndProps": {
+            "position": {
+              "x": 127,
+              "y": 105
+            },
+            "size": {
+              "width": 100,
+              "height": 100
+            }
+          },
+          "imgUrl": "https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/certificateeditor/images/badge1.png"
+        }
+      }
+    },
+    "imgUrl": "https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/email/orgData/common/1618566231.png",
+    "html": "<html><head></head><body><div id=\"certeditor-content\" style=\"position: relative; width: 14.7cm; height: 20.79cm; background-color: rgb(255, 255, 255); padding: 0px; margin: 0px; background-image: url(&quot;https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/certificateeditor/background/a4portrait/bg2.png&quot;); background-size: cover;\"><div class=\"certeditor-rnd-textelement react-draggable\" style=\"position: absolute; user-select: auto; width: 150px; height: 40px; display: inline-block; top: 0px; left: 0px; cursor: move; text-align: center; transform: translate(266px, 366px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><link href=\"https://fonts.googleapis.com/css2?family=Roboto\" rel=\"stylesheet\"><div id=\"font-button-roboto\" class=\"font-button-roboto\" contenteditable=\"true\" style=\"font-weight: 400; font-style: normal; font-family: Roboto; text-decoration: none; color: rgb(0, 0, 0); font-size: 20px;\">Successfully</div><div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; left: -5px; cursor: col-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; right: -5px; cursor: col-resize;\"></div></div></div><div class=\"certeditor-rnd-textelement react-draggable\" style=\"position: absolute; user-select: auto; width: 150px; height: 40px; display: inline-block; top: 0px; left: 0px; cursor: move; text-align: center; transform: translate(258px, 284px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><link href=\"https://fonts.googleapis.com/css2?family=Roboto\" rel=\"stylesheet\"><div id=\"font-button-roboto\" class=\"font-button-roboto\" contenteditable=\"true\" style=\"font-weight: 400; font-style: normal; font-family: Roboto; text-decoration: none; color: rgb(0, 0, 0); font-size: 20px;\">has completed</div><div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; left: -5px; cursor: col-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; right: -5px; cursor: col-resize;\"></div></div></div><div class=\"certeditor-rnd-varbelement react-draggable\" style=\"position: absolute; user-select: auto; width: 150px; height: 40px; display: inline-block; top: 0px; left: 0px; cursor: move; text-align: center; transform: translate(92px, 286px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><link href=\"https://fonts.googleapis.com/css2?family=Roboto\" rel=\"stylesheet\"><div id=\"font-button-roboto\" class=\"font-button-roboto\" disabled=\"\" contenteditable=\"false\" style=\"font-weight: 400; font-style: normal; font-family: Roboto; text-decoration: none; color: rgb(0, 0, 0); font-size: 20px;\">{{StudentName}}</div><div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; left: -5px; cursor: col-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; right: -5px; cursor: col-resize;\"></div></div></div><div class=\"certeditor-rnd-varbelement react-draggable\" style=\"position: absolute; user-select: auto; width: 150px; height: 40px; display: inline-block; top: 0px; left: 0px; cursor: move; text-align: center; transform: translate(89px, 365px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><link href=\"https://fonts.googleapis.com/css2?family=Roboto\" rel=\"stylesheet\"><div id=\"font-button-roboto\" class=\"font-button-roboto\" disabled=\"\" contenteditable=\"false\" style=\"font-weight: 400; font-style: normal; font-family: Roboto; text-decoration: none; color: rgb(0, 0, 0); font-size: 20px;\">{{CourseName}}</div><div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; left: -5px; cursor: col-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; right: -5px; cursor: col-resize;\"></div></div></div><div class=\"certeditor-rnd-imgelement certeditor-rnd-selected react-draggable react-draggable-dragged\" style=\"position: absolute; user-select: auto; width: 100px; height: 100px; display: inline-block; top: 0px; left: 0px; cursor: move; text-align: center; transform: translate(127px, 105px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><img src=\"https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/certificateeditor/images/badge1.png\" draggable=\"false\" alt=\"certimageasset\" style=\"width: 100%;\"><div><div class=\"\" style=\"position: absolute; user-select: none; width: 20px; height: 20px; right: -10px; bottom: -10px; cursor: se-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 20px; height: 20px; left: -10px; bottom: -10px; cursor: sw-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 20px; height: 20px; right: -10px; top: -10px; cursor: ne-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 20px; height: 20px; left: -10px; top: -10px; cursor: nw-resize;\"></div></div></div></div></body></html>",
+    "variant": "A4PORTRAIT",
+    "addedBy": {
+      "$oid": "5f80bdb43234820a45d9a406"
+    },
+    "created": 1618566235,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6079a35bb5842c6804a66bab"
+    },
+    "templateName": "template 4",
+    "templateJson": {
+      "background": {
+        "orientation": {
+          "dimensions": {
+            "widthCm": 29.7,
+            "heightCm": 21
+          },
+          "displayScale": 0.7
+        },
+        "img": "https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/certificateeditor/background/a4landscape/bg1.png"
+      },
+      "rndElemSet": {
+        "2838294278": {
+          "elementType": "IMAGE",
+          "elementId": 2838294278,
+          "rndProps": {
+            "position": {
+              "x": 568,
+              "y": 68
+            },
+            "size": {
+              "width": "144px",
+              "height": "160px"
+            }
+          },
+          "imgUrl": "https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/certificateeditor/images/badge2.png"
+        },
+        "3807789447": {
+          "elementType": "VARIABLE",
+          "elementId": 3807789447,
+          "rndProps": {
+            "size": {
+              "width": 150,
+              "height": 40
+            },
+            "position": {
+              "x": 285,
+              "y": 278
+            }
+          },
+          "id": "font-button-roboto",
+          "html": "{{CourseName}}",
+          "fontId": "roboto",
+          "textStyle": {
+            "fontWeight": 400,
+            "fontStyle": "normal",
+            "fontFamily": "Roboto",
+            "textDecoration": "none",
+            "color": "#000000",
+            "fontSize": 20
+          }
+        },
+        "9366637936": {
+          "elementType": "VARIABLE",
+          "elementId": 9366637936,
+          "rndProps": {
+            "size": {
+              "width": 150,
+              "height": 40
+            },
+            "position": {
+              "x": 83,
+              "y": 283
+            }
+          },
+          "id": "font-button-roboto",
+          "html": "{{StudentName}}",
+          "fontId": "roboto",
+          "textStyle": {
+            "fontWeight": 400,
+            "fontStyle": "normal",
+            "fontFamily": "Roboto",
+            "textDecoration": "none",
+            "color": "#000000",
+            "fontSize": 20
+          }
+        },
+        "6959532781": {
+          "elementType": "VARIABLE",
+          "elementId": 6959532781,
+          "rndProps": {
+            "size": {
+              "width": 150,
+              "height": 40
+            },
+            "position": {
+              "x": 94,
+              "y": 378
+            }
+          },
+          "id": "font-button-roboto",
+          "html": "{{EvaluatedBy}}",
+          "fontId": "roboto",
+          "textStyle": {
+            "fontWeight": 400,
+            "fontStyle": "normal",
+            "fontFamily": "Roboto",
+            "textDecoration": "none",
+            "color": "#000000",
+            "fontSize": 20
+          }
+        },
+        "6673343747": {
+          "elementType": "VARIABLE",
+          "elementId": 6673343747,
+          "rndProps": {
+            "size": {
+              "width": 150,
+              "height": 40
+            },
+            "position": {
+              "x": 300,
+              "y": 379
+            }
+          },
+          "id": "font-button-roboto",
+          "html": "{{Modules}}",
+          "fontId": "roboto",
+          "textStyle": {
+            "fontWeight": 400,
+            "fontStyle": "normal",
+            "fontFamily": "Roboto",
+            "textDecoration": "none",
+            "color": "#000000",
+            "fontSize": 20
+          }
+        }
+      }
+    },
+    "imgUrl": "https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/email/orgData/common/1618584382.png",
+    "html": "<html><head></head><body><div id=\"certeditor-content\" style=\"position: relative; width: 20.79cm; height: 14.7cm; background-color: rgb(255, 255, 255); padding: 0px; margin: 0px; background-image: url(&quot;https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/certificateeditor/background/a4landscape/bg1.png&quot;); background-size: cover;\"><div class=\"certeditor-rnd-varbelement react-draggable react-draggable-dragged\" style=\"position: absolute; user-select: auto; width: 150px; height: 40px; display: inline-block; top: 0px; left: 0px; cursor: move; text-align: center; transform: translate(285px, 278px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><link href=\"https://fonts.googleapis.com/css2?family=Roboto\" rel=\"stylesheet\"><div id=\"font-button-roboto\" class=\"font-button-roboto\" disabled=\"\" contenteditable=\"false\" style=\"font-weight: 400; font-style: normal; font-family: Roboto; text-decoration: none; color: rgb(0, 0, 0); font-size: 20px;\">{{CourseName}}</div><div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; left: -5px; cursor: col-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; right: -5px; cursor: col-resize;\"></div></div></div><div class=\"certeditor-rnd-varbelement react-draggable react-draggable-dragged\" style=\"position: absolute; user-select: auto; width: 150px; height: 40px; display: inline-block; top: 0px; left: 0px; cursor: move; text-align: center; transform: translate(83px, 283px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><link href=\"https://fonts.googleapis.com/css2?family=Roboto\" rel=\"stylesheet\"><div id=\"font-button-roboto\" class=\"font-button-roboto\" disabled=\"\" contenteditable=\"false\" style=\"font-weight: 400; font-style: normal; font-family: Roboto; text-decoration: none; color: rgb(0, 0, 0); font-size: 20px;\">{{StudentName}}</div><div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; left: -5px; cursor: col-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; right: -5px; cursor: col-resize;\"></div></div></div><div class=\"certeditor-rnd-varbelement react-draggable react-draggable-dragged\" style=\"position: absolute; user-select: auto; width: 150px; height: 40px; display: inline-block; top: 0px; left: 0px; cursor: move; text-align: center; transform: translate(94px, 378px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><link href=\"https://fonts.googleapis.com/css2?family=Roboto\" rel=\"stylesheet\"><div id=\"font-button-roboto\" class=\"font-button-roboto\" disabled=\"\" contenteditable=\"false\" style=\"font-weight: 400; font-style: normal; font-family: Roboto; text-decoration: none; color: rgb(0, 0, 0); font-size: 20px;\">{{EvaluatedBy}}</div><div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; left: -5px; cursor: col-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; right: -5px; cursor: col-resize;\"></div></div></div><div class=\"certeditor-rnd-varbelement certeditor-rnd-selected react-draggable react-draggable-dragged\" style=\"position: absolute; user-select: auto; width: 150px; height: 40px; display: inline-block; top: 0px; left: 0px; cursor: move; text-align: center; transform: translate(300px, 379px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><link href=\"https://fonts.googleapis.com/css2?family=Roboto\" rel=\"stylesheet\"><div id=\"font-button-roboto\" class=\"font-button-roboto\" disabled=\"\" contenteditable=\"false\" style=\"font-weight: 400; font-style: normal; font-family: Roboto; text-decoration: none; color: rgb(0, 0, 0); font-size: 20px;\">{{Modules}}</div><div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; left: -5px; cursor: col-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; right: -5px; cursor: col-resize;\"></div></div></div><div class=\"certeditor-rnd-imgelement react-draggable react-draggable-dragged\" style=\"position: absolute; user-select: auto; width: 144px; height: 160px; display: inline-block; top: 0px; left: 0px; cursor: move; text-align: center; transform: translate(568px, 68px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><img src=\"https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/certificateeditor/images/badge2.png\" draggable=\"false\" alt=\"certimageasset\" style=\"width: 100%;\"><div><div class=\"\" style=\"position: absolute; user-select: none; width: 20px; height: 20px; right: -10px; bottom: -10px; cursor: se-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 20px; height: 20px; left: -10px; bottom: -10px; cursor: sw-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 20px; height: 20px; right: -10px; top: -10px; cursor: ne-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 20px; height: 20px; left: -10px; top: -10px; cursor: nw-resize;\"></div></div></div></div></body></html>",
+    "variant": "A4LANDSCAPE",
+    "addedBy": {
+      "$oid": "5f80bdb43234820a45d9a406"
+    },
+    "created": 1618584411,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "607ab4e609e27d1e36a71737"
+    },
+    "templateName": "Template",
+    "templateJson": {
+      "background": {
+        "orientation": {
+          "dimensions": {
+            "widthCm": 21,
+            "heightCm": 29.7
+          },
+          "displayScale": 0.7
+        },
+        "img": "https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/certificateeditor/background/a4portrait/bg1.png"
+      },
+      "rndElemSet": {
+        "3474131004": {
+          "elementType": "IMAGE",
+          "elementId": 3474131004,
+          "rndProps": {
+            "position": {
+              "x": 365,
+              "y": 106
+            },
+            "size": {
+              "width": 100,
+              "height": 100
+            }
+          },
+          "imgUrl": "https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/certificateeditor/images/badge1.png"
+        },
+        "6321980997": {
+          "elementType": "VARIABLE",
+          "elementId": 6321980997,
+          "rndProps": {
+            "size": {
+              "width": 150,
+              "height": 40
+            },
+            "position": {
+              "x": 199,
+              "y": 224
+            }
+          },
+          "id": "font-button-roboto",
+          "html": "{{CourseName}}",
+          "fontId": "roboto",
+          "textStyle": {
+            "fontWeight": 900,
+            "fontStyle": "normal",
+            "fontFamily": "Roboto",
+            "textDecoration": "none",
+            "color": "#000000",
+            "fontSize": 20
+          }
+        },
+        "5064186418": {
+          "elementType": "TEXT",
+          "elementId": 5064186418,
+          "rndProps": {
+            "size": {
+              "width": 150,
+              "height": 40
+            },
+            "position": {
+              "x": 255,
+              "y": 348
+            }
+          },
+          "id": "font-button-roboto",
+          "html": "This is to certify",
+          "fontId": "roboto",
+          "textStyle": {
+            "fontWeight": 400,
+            "fontStyle": "normal",
+            "fontFamily": "Roboto",
+            "textDecoration": "none",
+            "color": "#D60404",
+            "fontSize": 20
+          }
+        },
+        "5828935263": {
+          "elementType": "QRCODE",
+          "elementId": 5828935263,
+          "rndProps": {
+            "position": {
+              "x": 234,
+              "y": 457
+            },
+            "size": {
+              "width": 90,
+              "height": 90
+            }
+          },
+          "imgUrl": "https://miro.medium.com/max/1400/1*sHmqYIYMV_C3TUhucHrT4w.png"
+        }
+      }
+    },
+    "imgUrl": "https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/email/orgData/common/1618654432.png",
+    "html": "<html><head></head><body><div id=\"certeditor-content\" style=\"position: relative; width: 14.7cm; height: 20.79cm; background-color: rgb(255, 255, 255); padding: 0px; margin: 0px; background-image: url(&quot;https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/certificateeditor/background/a4portrait/bg1.png&quot;); background-size: cover;\"><div class=\"certeditor-rnd-textelement certeditor-rnd-selected react-draggable react-draggable-dragged\" style=\"position: absolute; user-select: auto; width: 150px; height: 40px; display: inline-block; top: 0px; left: 0px; cursor: move; text-align: center; transform: translate(255px, 348px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><link href=\"https://fonts.googleapis.com/css2?family=Roboto\" rel=\"stylesheet\"><div id=\"font-button-roboto\" class=\"font-button-roboto\" contenteditable=\"true\" style=\"font-weight: 400; font-style: normal; font-family: Roboto; text-decoration: none; color: rgb(214, 4, 4); font-size: 20px;\">This is to certify</div><div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; left: -5px; cursor: col-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; right: -5px; cursor: col-resize;\"></div></div></div><div class=\"certeditor-rnd-varbelement react-draggable react-draggable-dragged\" style=\"position: absolute; user-select: auto; width: 150px; height: 40px; display: inline-block; top: 0px; left: 0px; cursor: move; text-align: center; transform: translate(199px, 224px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><link href=\"https://fonts.googleapis.com/css2?family=Roboto\" rel=\"stylesheet\"><div id=\"font-button-roboto\" class=\"font-button-roboto\" disabled=\"\" contenteditable=\"false\" style=\"font-weight: 900; font-style: normal; font-family: Roboto; text-decoration: none; color: rgb(0, 0, 0); font-size: 20px;\">{{CourseName}}</div><div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; left: -5px; cursor: col-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; right: -5px; cursor: col-resize;\"></div></div></div><div class=\"certeditor-rnd-imgelement react-draggable react-draggable-dragged\" style=\"position: absolute; user-select: auto; width: 100px; height: 100px; display: inline-block; top: 0px; left: 0px; cursor: move; text-align: center; transform: translate(365px, 106px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><img src=\"https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/certificateeditor/images/badge1.png\" draggable=\"false\" alt=\"certimageasset\" style=\"width: 100%;\"><div><div class=\"\" style=\"position: absolute; user-select: none; width: 20px; height: 20px; right: -10px; bottom: -10px; cursor: se-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 20px; height: 20px; left: -10px; bottom: -10px; cursor: sw-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 20px; height: 20px; right: -10px; top: -10px; cursor: ne-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 20px; height: 20px; left: -10px; top: -10px; cursor: nw-resize;\"></div></div></div><div class=\"certeditor-rnd-imgelement react-draggable react-draggable-dragged\" style=\"position: absolute; user-select: auto; width: 90px; height: 90px; display: inline-block; top: 0px; left: 0px; cursor: move; transform: translate(234px, 457px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><img id=\"certeditor-qrcode\" draggable=\"false\" src=\"{{QrCode}}\" width=\"100%\" height=\"100%\" alt=\"qr-code\"><div></div></div></div></body></html>",
+    "variant": "A4PORTRAIT",
+    "addedBy": {
+      "$oid": "5f80bdb43234820a45d9a406"
+    },
+    "created": 1618654453,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "607b0f029ff8ae13afd9baf0"
+    },
+    "templateName": "my template",
+    "templateJson": {
+      "background": {
+        "orientation": {
+          "dimensions": {
+            "widthCm": 29.7,
+            "heightCm": 21
+          },
+          "displayScale": 0.7
+        },
+        "img": "https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/orgData/5f80bdb33234820a45d9a405/1618676450_flower1.jpeg"
+      },
+      "rndElemSet": {
+        "73935517": {
+          "elementType": "VARIABLE",
+          "elementId": 73935517,
+          "rndProps": {
+            "size": {
+              "width": 150,
+              "height": 40
+            },
+            "position": {
+              "x": 74,
+              "y": 205
+            }
+          },
+          "id": "font-button-roboto",
+          "html": "{{StudentName}}",
+          "fontId": "roboto",
+          "textStyle": {
+            "fontWeight": 400,
+            "fontStyle": "normal",
+            "fontFamily": "Roboto",
+            "textDecoration": "none",
+            "color": "#000000",
+            "fontSize": 20
+          }
+        },
+        "900407208": {
+          "elementType": "VARIABLE",
+          "elementId": 900407208,
+          "rndProps": {
+            "size": {
+              "width": 150,
+              "height": 40
+            },
+            "position": {
+              "x": 260,
+              "y": 204
+            }
+          },
+          "id": "font-button-roboto",
+          "html": "{{CourseName}}",
+          "fontId": "roboto",
+          "textStyle": {
+            "fontWeight": 400,
+            "fontStyle": "normal",
+            "fontFamily": "Roboto",
+            "textDecoration": "none",
+            "color": "#000000",
+            "fontSize": 20
+          }
+        },
+        "3486831626": {
+          "elementType": "IMAGE",
+          "elementId": 3486831626,
+          "rndProps": {
+            "position": {
+              "x": 627,
+              "y": 25
+            },
+            "size": {
+              "width": "160px",
+              "height": "192px"
+            }
+          },
+          "imgUrl": "https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/certificateeditor/images/badge3.png"
+        }
+      }
+    },
+    "imgUrl": "https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/email/orgData/common/1618677494.png",
+    "html": "<html><head></head><body><div id=\"certeditor-content\" style=\"position: relative; width: 20.79cm; height: 14.7cm; background-color: rgb(255, 255, 255); padding: 0px; margin: 0px; background-image: url(&quot;https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/orgData/5f80bdb33234820a45d9a405/1618676450_flower1.jpeg&quot;); background-size: cover;\"><div class=\"certeditor-rnd-varbelement react-draggable react-draggable-dragged\" style=\"position: absolute; user-select: auto; width: 150px; height: 40px; display: inline-block; top: 0px; left: 0px; cursor: move; text-align: center; transform: translate(74px, 205px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><link href=\"https://fonts.googleapis.com/css2?family=Roboto\" rel=\"stylesheet\"><div id=\"font-button-roboto\" class=\"font-button-roboto\" disabled=\"\" contenteditable=\"false\" style=\"font-weight: 400; font-style: normal; font-family: Roboto; text-decoration: none; color: rgb(0, 0, 0); font-size: 20px;\">{{StudentName}}</div><div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; left: -5px; cursor: col-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; right: -5px; cursor: col-resize;\"></div></div></div><div class=\"certeditor-rnd-varbelement certeditor-rnd-selected react-draggable react-draggable-dragged\" style=\"position: absolute; user-select: auto; width: 150px; height: 40px; display: inline-block; top: 0px; left: 0px; cursor: move; text-align: center; transform: translate(260px, 204px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><link href=\"https://fonts.googleapis.com/css2?family=Roboto\" rel=\"stylesheet\"><div id=\"font-button-roboto\" class=\"font-button-roboto\" disabled=\"\" contenteditable=\"false\" style=\"font-weight: 400; font-style: normal; font-family: Roboto; text-decoration: none; color: rgb(0, 0, 0); font-size: 20px;\">{{CourseName}}</div><div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; left: -5px; cursor: col-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; right: -5px; cursor: col-resize;\"></div></div></div><div class=\"certeditor-rnd-imgelement react-draggable react-draggable-dragged\" style=\"position: absolute; user-select: auto; width: 160px; height: 192px; display: inline-block; top: 0px; left: 0px; cursor: move; text-align: center; transform: translate(567px, 25px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><img src=\"https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/certificateeditor/images/badge3.png\" draggable=\"false\" alt=\"certimageasset\" style=\"width: 100%;\"><div><div class=\"\" style=\"position: absolute; user-select: none; width: 20px; height: 20px; right: -10px; bottom: -10px; cursor: se-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 20px; height: 20px; left: -10px; bottom: -10px; cursor: sw-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 20px; height: 20px; right: -10px; top: -10px; cursor: ne-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 20px; height: 20px; left: -10px; top: -10px; cursor: nw-resize;\"></div></div></div></div></body></html>",
+    "variant": "A4LANDSCAPE",
+    "addedBy": {
+      "$oid": "5f80bdb43234820a45d9a406"
+    },
+    "created": 1618677506,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "607b14269ff8ae13afd9baf1"
+    },
+    "templateName": "template",
+    "templateJson": {
+      "background": {
+        "orientation": {
+          "dimensions": {
+            "widthCm": 29.7,
+            "heightCm": 21
+          },
+          "displayScale": 0.7
+        },
+        "img": "https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/certificateeditor/background/a4landscape/bg2.png"
+      },
+      "rndElemSet": {
+        "3538948122": {
+          "elementType": "VARIABLE",
+          "elementId": 3538948122,
+          "rndProps": {
+            "size": {
+              "width": 150,
+              "height": 40
+            },
+            "position": {
+              "x": 434,
+              "y": 132
+            }
+          },
+          "id": "font-button-roboto",
+          "html": "{{StudentName}}",
+          "fontId": "roboto",
+          "textStyle": {
+            "fontWeight": 400,
+            "fontStyle": "normal",
+            "fontFamily": "Roboto",
+            "textDecoration": "none",
+            "color": "#000000",
+            "fontSize": 20
+          }
+        },
+        "8720295490": {
+          "elementType": "IMAGE",
+          "elementId": 8720295490,
+          "rndProps": {
+            "position": {
+              "x": 83,
+              "y": 77
+            },
+            "size": {
+              "width": "144px",
+              "height": "144px"
+            }
+          },
+          "imgUrl": "https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/certificateeditor/images/badge2.png"
+        },
+        "9215550936": {
+          "elementType": "VARIABLE",
+          "elementId": 9215550936,
+          "rndProps": {
+            "size": {
+              "width": 150,
+              "height": 40
+            },
+            "position": {
+              "x": 425,
+              "y": 213
+            }
+          },
+          "id": "font-button-roboto",
+          "html": "{{CourseDuration}}",
+          "fontId": "roboto",
+          "textStyle": {
+            "fontWeight": 400,
+            "fontStyle": "normal",
+            "fontFamily": "Roboto",
+            "textDecoration": "none",
+            "color": "#000000",
+            "fontSize": 20
+          }
+        },
+        "6734836237": {
+          "elementType": "VARIABLE",
+          "elementId": 6734836237,
+          "rndProps": {
+            "size": {
+              "width": 150,
+              "height": 40
+            },
+            "position": {
+              "x": 441,
+              "y": 295
+            }
+          },
+          "id": "font-button-roboto",
+          "html": "{{OrgName}}",
+          "fontId": "roboto",
+          "textStyle": {
+            "fontWeight": 400,
+            "fontStyle": "normal",
+            "fontFamily": "Roboto",
+            "textDecoration": "none",
+            "color": "#000000",
+            "fontSize": 20
+          }
+        }
+      }
+    },
+    "imgUrl": "https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/email/orgData/common/1618678819.png",
+    "html": "<html><head></head><body><div id=\"certeditor-content\" style=\"position: relative; width: 20.79cm; height: 14.7cm; background-color: rgb(255, 255, 255); padding: 0px; margin: 0px; background-image: url(&quot;https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/certificateeditor/background/a4landscape/bg2.png&quot;); background-size: cover;\"><div class=\"certeditor-rnd-varbelement react-draggable react-draggable-dragged\" style=\"position: absolute; user-select: auto; width: 150px; height: 40px; display: inline-block; top: 0px; left: 0px; cursor: move; text-align: center; transform: translate(434px, 132px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><link href=\"https://fonts.googleapis.com/css2?family=Roboto\" rel=\"stylesheet\"><div id=\"font-button-roboto\" class=\"font-button-roboto\" disabled=\"\" contenteditable=\"false\" style=\"font-weight: 400; font-style: normal; font-family: Roboto; text-decoration: none; color: rgb(0, 0, 0); font-size: 20px;\">{{StudentName}}</div><div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; left: -5px; cursor: col-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; right: -5px; cursor: col-resize;\"></div></div></div><div class=\"certeditor-rnd-varbelement react-draggable react-draggable-dragged\" style=\"position: absolute; user-select: auto; width: 150px; height: 40px; display: inline-block; top: 0px; left: 0px; cursor: move; text-align: center; transform: translate(425px, 213px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><link href=\"https://fonts.googleapis.com/css2?family=Roboto\" rel=\"stylesheet\"><div id=\"font-button-roboto\" class=\"font-button-roboto\" disabled=\"\" contenteditable=\"false\" style=\"font-weight: 400; font-style: normal; font-family: Roboto; text-decoration: none; color: rgb(0, 0, 0); font-size: 20px;\">{{CourseDuration}}</div><div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; left: -5px; cursor: col-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; right: -5px; cursor: col-resize;\"></div></div></div><div class=\"certeditor-rnd-varbelement react-draggable react-draggable-dragged\" style=\"position: absolute; user-select: auto; width: 150px; height: 40px; display: inline-block; top: 0px; left: 0px; cursor: move; text-align: center; transform: translate(441px, 295px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><link href=\"https://fonts.googleapis.com/css2?family=Roboto\" rel=\"stylesheet\"><div id=\"font-button-roboto\" class=\"font-button-roboto\" disabled=\"\" contenteditable=\"false\" style=\"font-weight: 400; font-style: normal; font-family: Roboto; text-decoration: none; color: rgb(0, 0, 0); font-size: 20px;\">{{OrgName}}</div><div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; left: -5px; cursor: col-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; right: -5px; cursor: col-resize;\"></div></div></div><div class=\"certeditor-rnd-imgelement certeditor-rnd-selected react-draggable react-draggable-dragged\" style=\"position: absolute; user-select: auto; width: 144px; height: 144px; display: inline-block; top: 0px; left: 0px; cursor: move; text-align: center; transform: translate(83px, 77px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0;\"><img src=\"https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/certificateeditor/images/badge2.png\" draggable=\"false\" alt=\"certimageasset\" style=\"width: 100%;\"><div><div class=\"\" style=\"position: absolute; user-select: none; width: 20px; height: 20px; right: -10px; bottom: -10px; cursor: se-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 20px; height: 20px; left: -10px; bottom: -10px; cursor: sw-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 20px; height: 20px; right: -10px; top: -10px; cursor: ne-resize;\"></div><div class=\"\" style=\"position: absolute; user-select: none; width: 20px; height: 20px; left: -10px; top: -10px; cursor: nw-resize;\"></div></div></div></div></body></html>",
+    "variant": "USLTRLANDSCAPE",
+    "addedBy": {
+      "$oid": "5f80bdb43234820a45d9a406"
+    },
+    "created": 1618678822,
+    "__v": 0
+  }]

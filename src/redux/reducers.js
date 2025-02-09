@@ -1,17 +1,17 @@
+import { SET_CERTIFICATE } from './actions';
+
 const initialState = {
-  layers: [],
+  certificate: null,
 };
 
-function rootReducer(state = initialState, action) {
+export const certificateReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'ADD_LAYER':
-      return { ...state, layers: [...state.layers, action.payload] };
+    case SET_CERTIFICATE:
+      return { ...state, certificate: action.payload };
     default:
       return state;
   }
-}
-
-export default rootReducer;
+};
 
 
 

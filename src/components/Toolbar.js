@@ -1,18 +1,71 @@
 import React, { useState, useEffect } from 'react';
 import { MenuItem, Select, FormControl, InputLabel, Stack, Button, Dialog, Box } from '@mui/material';
 import { SketchPicker } from 'react-color';
-function Toolbar({ onPageSizeChange, onAddText, onBackgroundColorChange }) {
+import { load } from 'opentype.js';
+
+function Toolbar({ onPageSizeChange, onAddText, onBackgroundColorChange, onAddShape, onAddESignature }) {
   const [pageSize, setPageSize] = useState('A4_LANDSCAPE');
   const [fontFamily, setFontFamily] = useState('Arial');
   const [textType, setTextType] = useState('H1');
   const [isTextColorPickerOpen, setTextColorPickerOpen] = useState(false);
   const [textColor, setTextColor] = useState('#000000');
   const [isBgColorPickerOpen, setBgColorPickerOpen] = useState(false);
-  const [fonts, setFonts] = useState([]); // Store fetched fonts
+  const [fonts, setFonts] = useState([]);
+  const [loadingStatus, setLoadingStatus] = useState('idle');
+  const [selectedShape, setSelectedShape] = useState('rectangle');
+
+  // Load a custom font via opentype.js.
+  useEffect(() => {
+    const fontUrl = 'https://truscholar-assets-public.s3.ap-south-1.amazonaws.com/customFonts/AKAAK-B.TTF';
+    load(fontUrl, async (error, data) => {
+      if (error) {
+        console.error('Error loading font:', error);
+        setLoadingStatus('error');
+      } else {
+        try {
+          const fontFace = new FontFace(data.names.fullName.en, `url(${fontUrl}) format('truetype')`);
+          const loadedFont = await fontFace.load();
+          document.fonts.add(loadedFont);
+          setFonts(prev => [...prev, { name: data.names.fullName.en, url: fontUrl }]);
+          setLoadingStatus('finished');
+        } catch (e) {
+          setLoadingStatus('error');
+          console.error('Error creating font face:', e);
+        }
+      }
+    });
+  }, []);
+
+  // Fetch additional fonts from the Express API.
+  useEffect(() => {
+    const fetchFonts = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/api/fonts');
+        const data = await response.json();
+        setFonts(prev => [...prev, ...data]);
+      } catch (error) {
+        console.error('Error fetching fonts:', error);
+      }
+    };
+    fetchFonts();
+  }, []);
+
+  // Dynamically load the selected font.
+  useEffect(() => {
+    if (fontFamily) {
+      const font = fonts.find(f => f.name === fontFamily);
+      if (font) {
+        const fontFace = new FontFace(font.name, `url(${font.url}) format('truetype')`);
+        fontFace.load().then((loadedFont) => {
+          document.fonts.add(loadedFont);
+        }).catch(err => console.error('Error loading dynamic font:', err));
+      }
+    }
+  }, [fontFamily, fonts]);
+
   const handlePageSizeChange = (event) => {
     const selectedSize = event.target.value;
     setPageSize(selectedSize);
-
     const sizes = {
       A4_LANDSCAPE: { width: 1123, height: 794 },
       A4_PORTRAIT: { width: 794, height: 1123 },
@@ -42,34 +95,9 @@ function Toolbar({ onPageSizeChange, onAddText, onBackgroundColorChange }) {
     onBackgroundColorChange(color.hex);
   };
 
-  
-  // Fetch fonts from the Express API
-  useEffect(() => {
-    const fetchFonts = async () => {
-      try {
-        const response = await fetch('http://localhost:5000/api/fonts'); // Fetch from API
-        const data = await response.json();
-        setFonts(data); // Store fonts
-      } catch (error) {
-        console.error('Error fetching fonts:', error);
-      }
-    };
-
-    fetchFonts();
-  }, []);
-
-  // Load the selected font dynamically
-  useEffect(() => {
-    if (fontFamily) {
-      const font = fonts.find(f => f.name === fontFamily);
-      if (font) {
-        const fontFace = new FontFace(font.name, `url(${font.url}) format('truetype')`);
-        fontFace.load().then((loadedFont) => {
-          document.fonts.add(loadedFont);
-        });
-      }
-    }
-  }, [fontFamily, fonts]);
+  const handleAddShape = () => {
+    onAddShape(selectedShape);
+  };
 
   return (
     <Stack spacing={3}>
@@ -92,12 +120,14 @@ function Toolbar({ onPageSizeChange, onAddText, onBackgroundColorChange }) {
           <MenuItem value="H1">H1</MenuItem>
           <MenuItem value="H2">H2</MenuItem>
           <MenuItem value="H3">H3</MenuItem>
+          <MenuItem value="H4">H4</MenuItem>
+          <MenuItem value="H5">H5</MenuItem>
           <MenuItem value="BODY1">Body Font 1</MenuItem>
+          <MenuItem value="BODY FONT 2">Body Font 2</MenuItem>
           <MenuItem value="CAPTION">Caption</MenuItem>
         </Select>
       </FormControl>
 
-      {/* Dropdown for Font Family */}
       <FormControl fullWidth>
         <InputLabel>Font Family</InputLabel>
         <Select value={fontFamily} onChange={(e) => setFontFamily(e.target.value)}>
@@ -107,70 +137,53 @@ function Toolbar({ onPageSizeChange, onAddText, onBackgroundColorChange }) {
           <MenuItem value="Georgia">Georgia</MenuItem>
           <MenuItem value="Verdana">Verdana</MenuItem>
           {fonts.map((font) => (
-            <MenuItem key={font.name} value={font.name}>{font.name}</MenuItem>
+            <MenuItem key={font.name} value={font.name}>
+              {font.name}
+            </MenuItem>
           ))}
         </Select>
       </FormControl>
 
-      
       <Button variant="contained" onClick={handleAddText}>
         Add Text
       </Button>
 
       <Dialog open={isTextColorPickerOpen} onClose={() => setTextColorPickerOpen(false)}>
         <Box p={2}>
-          <SketchPicker
-            color={textColor}
-            onChangeComplete={handleTextColorChange}
-            disableAlpha
-          />
-          <Button
-            variant="contained"
-            fullWidth
-            onClick={confirmAddText}
-            style={{ marginTop: '10px' }}
-          >
+          <SketchPicker color={textColor} onChangeComplete={handleTextColorChange} disableAlpha />
+          <Button variant="contained" fullWidth onClick={confirmAddText} sx={{ mt: 2 }}>
             Confirm
           </Button>
         </Box>
       </Dialog>
 
-
-      <Button
-        variant="outlined"
-        onClick={() => setBgColorPickerOpen(true)}
-      >
+      <Button variant="outlined" onClick={() => setBgColorPickerOpen(true)}>
         Background Color
       </Button>
 
       <Dialog open={isBgColorPickerOpen} onClose={() => setBgColorPickerOpen(false)}>
         <Box p={2}>
-          <SketchPicker
-            onChangeComplete={handleBackgroundColorChange}
-            disableAlpha
-          />
+          <SketchPicker onChangeComplete={handleBackgroundColorChange} disableAlpha />
         </Box>
       </Dialog>
+
+      <FormControl fullWidth>
+        <InputLabel>Shape Type</InputLabel>
+        <Select value={selectedShape} onChange={(e) => setSelectedShape(e.target.value)}>
+          <MenuItem value="rectangle">Rectangle</MenuItem>
+          <MenuItem value="circle">Circle</MenuItem>
+          <MenuItem value="line">Line</MenuItem>
+        </Select>
+      </FormControl>
+      <Button variant="contained" onClick={handleAddShape}>
+        Add Shape
+      </Button>
+
+      <Button variant="contained" onClick={onAddESignature}>
+        Add E-Signature
+      </Button>
     </Stack>
   );
 }
 
 export default Toolbar;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

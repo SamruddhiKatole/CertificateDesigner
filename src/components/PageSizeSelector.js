@@ -1,5 +1,4 @@
 import React from 'react';
-
 const PageSizeSelector = ({ handlePageSizeChange }) => {
   return (
     <div className="page-size-selector">
@@ -18,3 +17,4 @@ const PageSizeSelector = ({ handlePageSizeChange }) => {
 };
 
 export default PageSizeSelector;
+

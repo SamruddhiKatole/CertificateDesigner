@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { addElement } from '../redux/actions';
-
 const ShapeEditor = ({ element }) => {
   const dispatch = useDispatch();
 
