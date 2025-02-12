@@ -1,4 +1,3 @@
-// src/components/HomePage.js
 import React, { useState, useEffect } from 'react';
 import {
   Box,
@@ -20,6 +19,109 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 import DownloadIcon from '@mui/icons-material/Download';
 import { useNavigate } from 'react-router-dom';
+import { Stage, Layer, Text, Rect, Image, Circle, Line } from 'react-konva';
+import useImage from 'use-image';
+
+// Helper component to load images (background or e‑signature)
+const BackgroundImage = ({ url, width, height, x = 0, y = 0 }) => {
+  const [image] = useImage(url, 'Anonymous');
+  return image ? <Image image={image} width={width} height={height} x={x} y={y} /> : null;
+};
+
+// Component for rendering a mini‑preview thumbnail of a certificate page.
+// The container is clickable and centers the preview.
+const PageThumbnail = ({ page, canvasSize, scale = 0.35, onClick }) => {
+  const thumbWidth = canvasSize.width * scale;
+  const thumbHeight = canvasSize.height * scale;
+
+  return (
+    <Box
+      onClick={onClick}
+      sx={{
+        width: '100%',
+        height: thumbHeight,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        overflow: 'hidden',
+        cursor: 'pointer', // indicates that it is clickable
+      }}
+    >
+      <Stage width={thumbWidth} height={thumbHeight} scaleX={scale} scaleY={scale}>
+        <Layer>
+          {/* Background */}
+          <Rect x={0} y={0} width={canvasSize.width} height={canvasSize.height} fill={page.backgroundColor} />
+          {page.backgroundImage && (
+            <BackgroundImage url={page.backgroundImage} width={canvasSize.width} height={canvasSize.height} />
+          )}
+          {page.eSignature && (
+            <BackgroundImage
+              url={page.eSignature}
+              width={150}
+              height={50}
+              x={canvasSize.width - 200}
+              y={canvasSize.height - 100}
+            />
+          )}
+          {/* Text elements */}
+          {page.texts.map((txt) => (
+            <Text
+              key={txt.id}
+              text={txt.text}
+              fontSize={txt.fontSize}
+              fontFamily={txt.fontFamily}
+              fill={txt.color}
+              x={txt.x}
+              y={txt.y}
+            />
+          ))}
+          {/* Shape elements */}
+          {page.shapes.map((shape) => {
+            if (shape.shapeType === 'rectangle') {
+              return (
+                <Rect
+                  key={shape.id}
+                  x={shape.x}
+                  y={shape.y}
+                  width={shape.width}
+                  height={shape.height}
+                  fill={shape.fill}
+                  stroke={shape.stroke}
+                  strokeWidth={shape.strokeWidth}
+                  opacity={shape.opacity}
+                />
+              );
+            } else if (shape.shapeType === 'circle') {
+              return (
+                <Circle
+                  key={shape.id}
+                  x={shape.x}
+                  y={shape.y}
+                  radius={shape.radius}
+                  fill={shape.fill}
+                  stroke={shape.stroke}
+                  strokeWidth={shape.strokeWidth}
+                  opacity={shape.opacity}
+                />
+              );
+            } else if (shape.shapeType === 'line') {
+              return (
+                <Line
+                  key={shape.id}
+                  points={shape.points}
+                  stroke={shape.stroke}
+                  strokeWidth={shape.strokeWidth}
+                  opacity={shape.opacity}
+                />
+              );
+            }
+            return null;
+          })}
+        </Layer>
+      </Stage>
+    </Box>
+  );
+};
 
 function HomePage() {
   const navigate = useNavigate();
@@ -27,6 +129,8 @@ function HomePage() {
   const [renameDialogOpen, setRenameDialogOpen] = useState(false);
   const [currentCertToRename, setCurrentCertToRename] = useState(null);
   const [newName, setNewName] = useState('');
+
+  const previewCanvasSize = { width: 1123, height: 794 };
 
   // Load certificates from localStorage on mount.
   useEffect(() => {
@@ -75,7 +179,7 @@ function HomePage() {
     setRenameDialogOpen(true);
   };
 
-  // Confirm the renaming action.
+  // Confirm renaming.
   const confirmRename = () => {
     const updatedCerts = certificates.map((cert) =>
       cert.id === currentCertToRename.id ? { ...cert, name: newName } : cert
@@ -85,17 +189,16 @@ function HomePage() {
     setRenameDialogOpen(false);
   };
 
-
   const handleDownload = (id) => {
     navigate(`/designer/${id}?download=true`);
   };
 
   return (
-    <Box sx={{ padding: 4 }}>
+    <Box sx={{ p: 2 }}>
       <Typography variant="h3" gutterBottom>
         Certificate Designer
       </Typography>
-      <Button variant="contained" onClick={handleCreate} sx={{ marginBottom: 2 }}>
+      <Button variant="contained" onClick={handleCreate} sx={{ mb: 2 }}>
         Create Certificate
       </Button>
       <Typography variant="h5" gutterBottom>
@@ -104,14 +207,23 @@ function HomePage() {
       <Grid container spacing={2}>
         {certificates.map((cert) => (
           <Grid item xs={12} sm={6} md={4} key={cert.id}>
-            <Card>
-              <CardContent>
+            <Card elevation={3}>
+              {/* Full-width, clickable preview thumbnail */}
+              {cert.pages && cert.pages[0] && (
+                <PageThumbnail
+                  page={cert.pages[0]}
+                  canvasSize={previewCanvasSize}
+                  scale={0.35}
+                  onClick={() => handleEdit(cert.id)}
+                />
+              )}
+              <CardContent sx={{ py: 1, px: 2 }}>
                 <Typography variant="h6">{cert.name || `Certificate ${cert.id}`}</Typography>
                 <Typography variant="body2" color="text.secondary">
                   {`Pages: ${cert.pages.length}`}
                 </Typography>
               </CardContent>
-              <CardActions>
+              <CardActions sx={{ justifyContent: 'space-between', px: 2, pb: 1 }}>
                 <IconButton color="primary" onClick={() => handleEdit(cert.id)}>
                   <EditIcon />
                 </IconButton>

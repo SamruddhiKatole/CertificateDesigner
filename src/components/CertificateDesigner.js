@@ -9,10 +9,112 @@ import { Box, Button } from '@mui/material';
 import useImage from 'use-image';
 import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 
-// Helper component to load an image as background or e‑signature.
-const BackgroundImage = ({ url, width, height }) => {
-  const [image] = useImage(url);
-  return image ? <Image image={image} width={width} height={height} /> : null;
+const BackgroundImage = ({ url, width, height, x = 0, y = 0 }) => {
+  const [image] = useImage(url, 'Anonymous');
+  return image ? (
+    <Image image={image} width={width} height={height} x={x} y={y} />
+  ) : null;
+};
+
+// Component for rendering a small thumbnail of a page.
+const PageThumbnail = ({ page, canvasSize, scale = 0.2, onClick, selected }) => {
+  return (
+    <Box
+      onClick={onClick}
+      sx={{
+        border: selected ? '2px solid blue' : '1px solid #ccc',
+        cursor: 'pointer',
+        m: 0.5,
+        width: canvasSize.width * scale,
+        height: canvasSize.height * scale,
+      }}
+    >
+      <Stage
+        width={canvasSize.width * scale}
+        height={canvasSize.height * scale}
+        scaleX={scale}
+        scaleY={scale}
+      >
+        <Layer>
+          <Rect
+            x={0}
+            y={0}
+            width={canvasSize.width}
+            height={canvasSize.height}
+            fill={page.backgroundColor}
+          />
+          {page.backgroundImage && (
+            <BackgroundImage
+              url={page.backgroundImage}
+              width={canvasSize.width}
+              height={canvasSize.height}
+            />
+          )}
+          {page.eSignature && (
+            <BackgroundImage
+              url={page.eSignature}
+              width={150}
+              height={50}
+              x={canvasSize.width - 200}
+              y={canvasSize.height - 100}
+            />
+          )}
+          {page.texts.map((txt) => (
+            <Text
+              key={txt.id}
+              text={txt.text}
+              fontSize={txt.fontSize}
+              fontFamily={txt.fontFamily}
+              fill={txt.color}
+              x={txt.x}
+              y={txt.y}
+            />
+          ))}
+          {page.shapes.map((shape) => {
+            if (shape.shapeType === 'rectangle') {
+              return (
+                <Rect
+                  key={shape.id}
+                  x={shape.x}
+                  y={shape.y}
+                  width={shape.width}
+                  height={shape.height}
+                  fill={shape.fill}
+                  stroke={shape.stroke}
+                  strokeWidth={shape.strokeWidth}
+                  opacity={shape.opacity}
+                />
+              );
+            } else if (shape.shapeType === 'circle') {
+              return (
+                <Circle
+                  key={shape.id}
+                  x={shape.x}
+                  y={shape.y}
+                  radius={shape.radius}
+                  fill={shape.fill}
+                  stroke={shape.stroke}
+                  strokeWidth={shape.strokeWidth}
+                  opacity={shape.opacity}
+                />
+              );
+            } else if (shape.shapeType === 'line') {
+              return (
+                <Line
+                  key={shape.id}
+                  points={shape.points}
+                  stroke={shape.stroke}
+                  strokeWidth={shape.strokeWidth}
+                  opacity={shape.opacity}
+                />
+              );
+            }
+            return null;
+          })}
+        </Layer>
+      </Stage>
+    </Box>
+  );
 };
 
 function CertificateDesigner() {
@@ -20,7 +122,7 @@ function CertificateDesigner() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
-  // Certificate state contains pages that hold texts, shapes, background info, etc.
+  // Certificate state contains pages with texts, shapes, background info, etc.
   const [certificate, setCertificate] = useState({
     id: id || Date.now().toString(),
     pages: [
@@ -36,6 +138,7 @@ function CertificateDesigner() {
   });
   const [currentPageIndex, setCurrentPageIndex] = useState(0);
   const [canvasSize, setCanvasSize] = useState({ width: 1123, height: 794 });
+
   const [zoom, setZoom] = useState(1);
 
   // For undo/redo functionality.
@@ -45,7 +148,7 @@ function CertificateDesigner() {
   // Reference to the Konva Stage.
   const stageRef = useRef(null);
 
-  // Load the certificate from localStorage if it exists.
+  // Load certificate from localStorage if available.
   useEffect(() => {
     const savedCertificates = JSON.parse(localStorage.getItem('certificates')) || [];
     const found = savedCertificates.find((cert) => cert.id === id);
@@ -61,7 +164,6 @@ function CertificateDesigner() {
     localStorage.setItem('certificates', JSON.stringify([...otherCerts, certificate]));
   }, [certificate]);
 
-  // Push the current certificate state onto the undo history.
   const pushHistory = () => {
     setHistory([...history, certificate]);
     setRedoStack([]);
@@ -83,7 +185,7 @@ function CertificateDesigner() {
     setCertificate(next);
   };
 
-  // Add a text element to the current page.
+  // Add a text element.
   const handleAddText = (textType, color, fontFamily) => {
     pushHistory();
     const fontSizeMap = {
@@ -112,7 +214,7 @@ function CertificateDesigner() {
     setCertificate({ ...certificate, pages: updatedPages });
   };
 
-  // Add a shape (rectangle, circle, or line) to the current page.
+  // Add a shape element.
   const handleAddShape = (shapeType) => {
     pushHistory();
     const newShape = {
@@ -136,7 +238,7 @@ function CertificateDesigner() {
     setCertificate({ ...certificate, pages: updatedPages });
   };
 
-  // Update a text element (e.g. after dragging or editing).
+  // Update a text element.
   const updateText = (id, newAttrs) => {
     pushHistory();
     const updatedPages = certificate.pages.map((page, index) => {
@@ -168,7 +270,7 @@ function CertificateDesigner() {
     setCertificate({ ...certificate, pages: updatedPages });
   };
 
-  // Change z‑order (bring forward / send backward) for text or shape.
+  // Change z‑order for text or shape.
   const changeZIndex = (id, delta, elementType) => {
     pushHistory();
     const updatedPages = certificate.pages.map((page, index) => {
@@ -218,7 +320,7 @@ function CertificateDesigner() {
     setCertificate({ ...certificate, pages: updatedPages });
   };
 
-  // Page management: add, remove, and navigate pages.
+  // Page management.
   const addPage = () => {
     pushHistory();
     const newPage = {
@@ -246,7 +348,8 @@ function CertificateDesigner() {
   };
 
   const nextPage = () => {
-    if (currentPageIndex < certificate.pages.length - 1) setCurrentPageIndex(currentPageIndex + 1);
+    if (currentPageIndex < certificate.pages.length - 1)
+      setCurrentPageIndex(currentPageIndex + 1);
   };
 
   // Change background color.
@@ -261,7 +364,7 @@ function CertificateDesigner() {
     setCertificate({ ...certificate, pages: updatedPages });
   };
 
-  // When a template is selected, update the current page.
+  // When a template is selected.
   const handleTemplateSelect = (template) => {
     pushHistory();
     const newBgColor = '#000000';
@@ -279,12 +382,6 @@ function CertificateDesigner() {
         color: elem.textStyle.color || '#000000',
         type: 'text',
       }));
-
-      const BackgroundImage = ({ url, width, height }) => {
-      const [image] = useImage(url);
-      return image ? <Image image={image} width={width} height={height} /> : null;
-    };
-
 
     const updatedPages = [...certificate.pages];
     updatedPages[currentPageIndex].texts = textElements;
@@ -310,25 +407,18 @@ function CertificateDesigner() {
     setCertificate({ ...certificate, pages: updatedPages });
   };
 
-  // const downloadCertificate = () => {
-  //   if (stageRef.current) {
-  //     const dataURL = stageRef.current.toDataURL({ pixelRatio: 1 });
-  //     const link = document.createElement('a');
-  //     link.href = dataURL;
-  //     link.download = `certificate-${certificate.id}.png`;
-  //     link.click();
-  //   }
-  // };
-   const downloadCertificate = () => {
+  // Download certificate as an image.
+  // This function simply downloads the current canvas as rendered,
+  // ignoring any zoom adjustments, as for ignoring zoom is giving errors
+  const downloadCertificate = () => {
     if (stageRef.current) {
-      const dataURL = stageRef.current.toDataURL({ pixelRatio: 1 / zoom });
+      const dataURL = stageRef.current.toDataURL();
       const link = document.createElement('a');
       link.href = dataURL;
       link.download = `certificate-${certificate.id}.png`;
       link.click();
     }
   };
-
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -354,7 +444,6 @@ function CertificateDesigner() {
 
   const currentPage = certificate.pages[currentPageIndex];
 
-  // If the query parameter 'download' is present, trigger download after a short delay.
   useEffect(() => {
     if (searchParams.get('download')) {
       setTimeout(() => {
@@ -413,23 +502,25 @@ function CertificateDesigner() {
           </Button>
         </Box>
       </Box>
-      {/* Main canvas area */}
+      {/* Main canvas area with thumbnails below */}
       <Box
         sx={{
           flexGrow: 1,
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
           p: 2,
           bgcolor: '#f5f5f5',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
         }}
       >
+        {/* Main canvas */}
         <Box
           sx={{
             border: '2px solid #ccc',
             overflow: 'hidden',
             width: canvasSize.width,
             height: canvasSize.height,
+            mb: 2,
           }}
         >
           <Stage
@@ -555,9 +646,31 @@ function CertificateDesigner() {
             </Layer>
           </Stage>
         </Box>
+        {/* Thumbnails for all pages */}
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+          {certificate.pages.map((page, index) => (
+            <PageThumbnail
+              key={page.id}
+              page={page}
+              canvasSize={canvasSize}
+              scale={0.2}
+              selected={index === currentPageIndex}
+              onClick={() => setCurrentPageIndex(index)}
+            />
+          ))}
+        </Box>
       </Box>
     </Box>
   );
 }
 
 export default CertificateDesigner;
+
+
+
+
+
+
+
+
+
