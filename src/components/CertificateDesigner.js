@@ -8,7 +8,9 @@ import LayerManager from './LayerManager';
 import { Box, Button } from '@mui/material';
 import useImage from 'use-image';
 import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
-
+import html2canvas from 'html2canvas';
+import Konva from 'konva';
+import { jsPDF } from 'jspdf';
 const BackgroundImage = ({ url, width, height, x = 0, y = 0 }) => {
   const [image] = useImage(url, 'Anonymous');
   return image ? (
@@ -138,7 +140,6 @@ function CertificateDesigner() {
   });
   const [currentPageIndex, setCurrentPageIndex] = useState(0);
   const [canvasSize, setCanvasSize] = useState({ width: 1123, height: 794 });
-
   const [zoom, setZoom] = useState(1);
 
   // For undo/redo functionality.
@@ -408,16 +409,54 @@ function CertificateDesigner() {
   };
 
   // Download certificate as an image.
-  // This function simply downloads the current canvas as rendered,
-  // ignoring any zoom adjustments, as for ignoring zoom is giving errors
-  const downloadCertificate = () => {
-    if (stageRef.current) {
-      const dataURL = stageRef.current.toDataURL();
-      const link = document.createElement('a');
-      link.href = dataURL;
-      link.download = `certificate-${certificate.id}.png`;
-      link.click();
+  // This function resets the zoom first then downloads the certificate.
+  const downloadCertificate = async () => {
+    // Reset zoom first
+    setZoom(1);
+    // Allow some time for the zoom change to render
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    
+    for (let i = 0; i < certificate.pages.length; i++) {
+      setCurrentPageIndex(i);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      if (stageRef.current) {
+        const dataURL = stageRef.current.toDataURL();
+        const link = document.createElement('a');
+        link.href = dataURL;
+        link.download = `certificate-${certificate.id}-page-${i + 1}.png`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
     }
+  };
+
+  // Download certificate as a PDF.
+  const downloadCertificateAsPDF = async () => {
+    // Reset zoom first
+    setZoom(1);
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
+    // Create a new jsPDF instance. Here we use 'pt' as unit and the canvas size as format.
+    const pdf = new jsPDF({
+      orientation: 'landscape',
+      unit: 'pt',
+      format: [canvasSize.width, canvasSize.height],
+    });
+
+    for (let i = 0; i < certificate.pages.length; i++) {
+      setCurrentPageIndex(i);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      if (stageRef.current) {
+        const dataURL = stageRef.current.toDataURL();
+        if (i > 0) {
+          pdf.addPage();
+        }
+        // Add the image to the PDF. The image fills the entire PDF page.
+        pdf.addImage(dataURL, 'PNG', 0, 0, canvasSize.width, canvasSize.height);
+      }
+    }
+    pdf.save(`certificate-${certificate.id}.pdf`);
   };
 
   useEffect(() => {
@@ -486,6 +525,9 @@ function CertificateDesigner() {
           <Button variant="outlined" onClick={() => setZoom(zoom * 1.2)}>
             Zoom In
           </Button>
+          <Button variant="outlined" onClick={() => setZoom(1)}>
+            Reset Zoom
+          </Button>
         </Box>
         <Box sx={{ mt: 2, display: 'flex', flexDirection: 'column', gap: 1 }}>
           <Button variant="contained" onClick={undo}>
@@ -495,7 +537,10 @@ function CertificateDesigner() {
             Redo
           </Button>
           <Button variant="contained" color="primary" onClick={downloadCertificate}>
-            Download
+            Download PNG
+          </Button>
+          <Button variant="contained" color="primary" onClick={downloadCertificateAsPDF}>
+            Download as PDF
           </Button>
           <Button variant="outlined" onClick={() => navigate('/')}>
             Back to Home
@@ -665,12 +710,3 @@ function CertificateDesigner() {
 }
 
 export default CertificateDesigner;
-
-
-
-
-
-
-
-
-

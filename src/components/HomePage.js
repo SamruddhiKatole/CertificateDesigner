@@ -22,7 +22,6 @@ import { useNavigate } from 'react-router-dom';
 import { Stage, Layer, Text, Rect, Image, Circle, Line } from 'react-konva';
 import useImage from 'use-image';
 
-// Helper component to load images (background or e‑signature)
 const BackgroundImage = ({ url, width, height, x = 0, y = 0 }) => {
   const [image] = useImage(url, 'Anonymous');
   return image ? <Image image={image} width={width} height={height} x={x} y={y} /> : null;
@@ -44,7 +43,7 @@ const PageThumbnail = ({ page, canvasSize, scale = 0.35, onClick }) => {
         justifyContent: 'center',
         alignItems: 'center',
         overflow: 'hidden',
-        cursor: 'pointer', // indicates that it is clickable
+        cursor: 'pointer',
       }}
     >
       <Stage width={thumbWidth} height={thumbHeight} scaleX={scale} scaleY={scale}>
@@ -267,3 +266,4 @@ function HomePage() {
 }
 
 export default HomePage;
+

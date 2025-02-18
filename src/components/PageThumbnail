@@ -1,0 +1,38 @@
+// src/components/PageThumbnail.js
+import React from 'react';
+import { Stage, Layer, Rect, Text } from 'react-konva';
+import { Box } from '@mui/material';
+
+const PageThumbnail = ({ page, canvasSize, scale = 0.2, onClick, selected }) => (
+  <Box
+    onClick={onClick}
+    sx={{
+      border: selected ? '2px solid blue' : '1px solid #ccc',
+      cursor: 'pointer',
+      m: 0.5,
+      width: canvasSize.width * scale,
+      height: canvasSize.height * scale,
+    }}
+  >
+    <Stage width={canvasSize.width * scale} height={canvasSize.height * scale}>
+      <Layer>
+        <Rect
+          x={0}
+          y={0}
+          width={canvasSize.width * scale}
+          height={canvasSize.height * scale}
+          fill={page.backgroundColor}
+        />
+        <Text
+          text={`Page ${page.id}`}
+          fontSize={14}
+          x={10}
+          y={10}
+          fill="black"
+        />
+      </Layer>
+    </Stage>
+  </Box>
+);
+
+export default PageThumbnail;
